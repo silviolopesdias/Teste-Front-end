@@ -1,14 +1,17 @@
-import React from "react";
+import React, {useRef, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { Container, ContainerItems, Image, H1, Input, Button, ContainerItems1, ContainerPassword, ContainerItems2, Image1, Image2 } from "./styles";
 import Logo from "./../../assets/logo.svg"
 import Rectangle from "./../../assets/Rectangle 3.svg"
 import Computador from "./../../assets/computador.svg"
-import Senha from "../../assets/senha.svg"
+import {VscEye, VscEyeClosed} from "react-icons/vsc"
+
+
 
 function Login() {
   const navigate = useNavigate()
-
+  const inputRef = useRef(null)
+  const [eyeIsClosed, setEyeState] = useState(false)
 
 
   function nextPage() {
@@ -16,6 +19,16 @@ function Login() {
   }
 
 
+ function toggleShow (){
+  if(inputRef.current.type === "password"){
+    setEyeState(true)
+    inputRef.current.type = "text"
+  }else{
+    setEyeState(false)
+    inputRef.current.type = "password"
+  }
+
+}
 
 
   return (
@@ -29,8 +42,8 @@ function Login() {
           <H1>Bem Vindo ao <strong>painel</strong></H1>
           <Input type="email" placeholder="Digite seu e-mail"></Input>
           <ContainerPassword>
-            <Input type="password" placeholder="Digite sua senha"></Input>
-            <button ><img alt="senha" src={Senha}></img></button>
+            <Input ref={inputRef}   type="password" placeholder="Digite sua senha"></Input>
+            <button onClick={toggleShow}> {eyeIsClosed ? <VscEyeClosed/> : <VscEye/>}</button>
           </ContainerPassword>
           <Button onClick={nextPage}>Acessar</Button>
         </ContainerItems1>

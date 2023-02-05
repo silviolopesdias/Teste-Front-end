@@ -64,10 +64,12 @@ padding-left:12px;
 `
 export const ContainerPassword = styled.div`
 
+
 button{
+ 
  position: absolute;
  left: 550px;
- top: 395px;
+ top: 400px;
  border: none;
  background: none;
  cursor: pointer;
