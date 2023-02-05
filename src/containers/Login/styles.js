@@ -62,12 +62,15 @@ padding-left:12px;
 
 
 `
-export const ContainerOlho = styled.div`
+export const ContainerPassword = styled.div`
 
-img{
+button{
  position: absolute;
  left: 550px;
  top: 395px;
+ border: none;
+ background: none;
+ cursor: pointer;
 }
 
 
@@ -147,7 +150,4 @@ top: 165px;
 left: 650px;
 
 `
-export const Image1 = styled.img`
-
-
-`
+export const Image1 = styled.img``
